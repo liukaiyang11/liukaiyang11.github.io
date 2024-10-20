@@ -9,49 +9,49 @@
   <meta name="description" content="测评qwen 、glm ,deepseek的模型  对垂直领域的能力的支持情况对比前言：​	在写这篇文章的时候，我也看了许多测评的文章，总觉得差点意思，都是对通用能力的测评，或者是垂直领域的coder 或者是math能力，就不太适用于我目前的项目，对于任何一个公司开发项目肯定是数据是非常核心的，不能说去直接调用市面给用户使用的大模型的api,需要部署本地大模型进行使用。我的思路，通过本地部署大模型">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/2024/10/16/%E6%B5%8B%E8%AF%84qwen%20%E3%80%81glm%20,deepseek%E7%9A%84%E6%A8%A1%E5%9E%8B%20%20%E5%AF%B9%E5%9E%82%E7%9B%B4%E9%A2%86%E5%9F%9F%E9%80%9A%E8%AE%AF%E7%9A%84%E8%83%BD%E5%8A%9B%E7%9A%84%E6%94%AF%E6%8C%81%E6%83%85%E5%86%B5%E5%AF%B9%E6%AF%94/index.html">
+<meta property="og:url" content="http://example.com/2024/10/20/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="测评qwen 、glm ,deepseek的模型  对垂直领域的能力的支持情况对比前言：​	在写这篇文章的时候，我也看了许多测评的文章，总觉得差点意思，都是对通用能力的测评，或者是垂直领域的coder 或者是math能力，就不太适用于我目前的项目，对于任何一个公司开发项目肯定是数据是非常核心的，不能说去直接调用市面给用户使用的大模型的api,需要部署本地大模型进行使用。我的思路，通过本地部署大模型">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/assets%5C1728637791563.png">
-<meta property="og:image" content="http://example.com/assets%5C1728638052739.png">
-<meta property="og:image" content="http://example.com/assets%5C1728709652292.png">
-<meta property="og:image" content="http://example.com/assets%5C1728709735215.png">
-<meta property="og:image" content="http://example.com/assets%5C1728639720539.png">
-<meta property="og:image" content="http://example.com/assets%5C1728640401525.png">
-<meta property="og:image" content="http://example.com/assets%5C1728640549411.png">
-<meta property="og:image" content="http://example.com/assets%5C1728639447144.png">
-<meta property="og:image" content="http://example.com/assets%5C1728639944157.png">
-<meta property="og:image" content="http://example.com/assets%5C1728638857461.png">
-<meta property="og:image" content="http://example.com/assets%5C1728639101935.png">
-<meta property="og:image" content="http://example.com/assets%5C1728640956042.png">
-<meta property="og:image" content="http://example.com/assets%5C1728640869266.png">
-<meta property="og:image" content="http://example.com/assets%5C1728641060083.png">
-<meta property="og:image" content="http://example.com/assets%5C1728641156807.png">
-<meta property="og:image" content="http://example.com/assets%5C1728699732355.png">
-<meta property="og:image" content="http://example.com/assets%5C1728709456278.png">
-<meta property="og:image" content="http://example.com/assets%5C1728709498926.png">
-<meta property="og:image" content="http://example.com/assets%5C1728721241305.png">
-<meta property="og:image" content="http://example.com/assets%5C1728722342182.png">
-<meta property="og:image" content="http://example.com/assets%5C1728722404305.png">
-<meta property="og:image" content="http://example.com/assets%5C1728722450359.png">
-<meta property="og:image" content="http://example.com/assets%5C1728722484675.png">
-<meta property="og:image" content="http://example.com/assets%5C1728722523094.png">
-<meta property="og:image" content="http://example.com/assets%5C1728722952964.png">
-<meta property="og:image" content="http://example.com/assets%5C1728722997750.png">
-<meta property="og:image" content="http://example.com/assets%5C1728723026814.png">
-<meta property="og:image" content="http://example.com/assets%5C1728723045072.png">
-<meta property="og:image" content="http://example.com/assets%5C1728723064433.png">
-<meta property="og:image" content="http://example.com/assets%5C1728723259695.png">
-<meta property="og:image" content="http://example.com/assets%5C1728723373572.png">
-<meta property="og:image" content="http://example.com/assets%5C1728723421005.png">
-<meta property="og:image" content="http://example.com/assets%5C1728723439375.png">
-<meta property="og:image" content="http://example.com/assets%5C1728723453975.png">
-<meta property="article:published_time" content="2024-10-16T14:20:07.224Z">
-<meta property="article:modified_time" content="2024-10-16T14:28:26.814Z">
+<meta property="og:image" content="http://example.com/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728637791563.png">
+<meta property="og:image" content="http://example.com/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728638052739.png">
+<meta property="og:image" content="http://example.com/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728709652292.png">
+<meta property="og:image" content="http://example.com/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728709735215.png">
+<meta property="og:image" content="http://example.com/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728639720539.png">
+<meta property="og:image" content="http://example.com/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728640401525.png">
+<meta property="og:image" content="http://example.com/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728640549411.png">
+<meta property="og:image" content="http://example.com/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728639447144.png">
+<meta property="og:image" content="http://example.com/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728639944157.png">
+<meta property="og:image" content="http://example.com/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728638857461.png">
+<meta property="og:image" content="http://example.com/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728639101935.png">
+<meta property="og:image" content="http://example.com/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728640956042.png">
+<meta property="og:image" content="http://example.com/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728640869266.png">
+<meta property="og:image" content="http://example.com/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728641060083.png">
+<meta property="og:image" content="http://example.com/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728641156807.png">
+<meta property="og:image" content="http://example.com/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728699732355.png">
+<meta property="og:image" content="http://example.com/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728709456278.png">
+<meta property="og:image" content="http://example.com/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728709498926.png">
+<meta property="og:image" content="http://example.com/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728721241305.png">
+<meta property="og:image" content="http://example.com/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728722342182.png">
+<meta property="og:image" content="http://example.com/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728722404305.png">
+<meta property="og:image" content="http://example.com/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728722450359.png">
+<meta property="og:image" content="http://example.com/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728722484675.png">
+<meta property="og:image" content="http://example.com/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728722523094.png">
+<meta property="og:image" content="http://example.com/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728722952964.png">
+<meta property="og:image" content="http://example.com/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728722997750.png">
+<meta property="og:image" content="http://example.com/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728723026814.png">
+<meta property="og:image" content="http://example.com/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728723045072.png">
+<meta property="og:image" content="http://example.com/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728723064433.png">
+<meta property="og:image" content="http://example.com/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728723259695.png">
+<meta property="og:image" content="http://example.com/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728723373572.png">
+<meta property="og:image" content="http://example.com/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728723421005.png">
+<meta property="og:image" content="http://example.com/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728723439375.png">
+<meta property="og:image" content="http://example.com/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728723453975.png">
+<meta property="article:published_time" content="2024-10-20T09:46:18.302Z">
+<meta property="article:modified_time" content="2024-10-20T09:48:42.138Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/assets%5C1728637791563.png">
+<meta name="twitter:image" content="http://example.com/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728637791563.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -106,10 +106,10 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-测评qwen 、glm ,deepseek的模型  对垂直领域通讯的能力的支持情况对比" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-大模型测评" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2024/10/16/%E6%B5%8B%E8%AF%84qwen%20%E3%80%81glm%20,deepseek%E7%9A%84%E6%A8%A1%E5%9E%8B%20%20%E5%AF%B9%E5%9E%82%E7%9B%B4%E9%A2%86%E5%9F%9F%E9%80%9A%E8%AE%AF%E7%9A%84%E8%83%BD%E5%8A%9B%E7%9A%84%E6%94%AF%E6%8C%81%E6%83%85%E5%86%B5%E5%AF%B9%E6%AF%94/" class="article-date">
-  <time class="dt-published" datetime="2024-10-16T14:20:07.224Z" itemprop="datePublished">2024-10-16</time>
+    <a href="/2024/10/20/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84/" class="article-date">
+  <time class="dt-published" datetime="2024-10-20T09:46:18.302Z" itemprop="datePublished">2024-10-20</time>
 </a>
     
   </div>
@@ -144,23 +144,23 @@
 </li>
 </ol>
 </blockquote>
-<p><img src="/assets%5C1728637791563.png" alt="1728637791563"></p>
+<p><img src="/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728637791563.png" alt="1728637791563"></p>
 <p>下载完成后你的目录就会有.exe的应用程序</p>
-<p><img src="/assets%5C1728638052739.png" alt="1728638052739"></p>
+<p><img src="/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728638052739.png" alt="1728638052739"></p>
 <p>具体的Docker desktop的安装不做过多的赘述，点击下一步下一步安装即可，安装好之后，打开软件主界面是：（这里我调整了主题是暗色系，正常是白色）</p>
-<p><img src="/assets%5C1728709652292.png" alt="1728709652292"></p>
+<p><img src="/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728709652292.png" alt="1728709652292"></p>
 <p>我们在 CMD 终端上看。</p>
-<p><img src="/assets%5C1728709735215.png" alt="1728709735215"></p>
+<p><img src="/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728709735215.png" alt="1728709735215"></p>
 <p>至此，Docker Desktop 安装告一段落，接下来就是在 安装Ollama平台和Open_webUI</p>
-<h3 id="2-Ollama的本地部署"><a href="#2-Ollama的本地部署" class="headerlink" title="2.Ollama的本地部署"></a>2.Ollama的本地部署</h3><p>进入网址：<a target="_blank" rel="noopener" href="https://ollama.com/download">https://ollama.com/download</a> 根据你的需求进行下载即可，我这里直接下载的是windows版本，下载完成后也是在目录里出现了一个exe的文件，点击下一步进行安装即可<br><img src="/assets%5C1728639720539.png" alt="1728639720539"></p>
+<h3 id="2-Ollama的本地部署"><a href="#2-Ollama的本地部署" class="headerlink" title="2.Ollama的本地部署"></a>2.Ollama的本地部署</h3><p>进入网址：<a target="_blank" rel="noopener" href="https://ollama.com/download">https://ollama.com/download</a> 根据你的需求进行下载即可，我这里直接下载的是windows版本，下载完成后也是在目录里出现了一个exe的文件，点击下一步进行安装即可<br><img src="/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728639720539.png" alt="1728639720539"></p>
 <p>ollama部署完成后我们继续进入官网<a target="_blank" rel="noopener" href="https://ollama.com/%EF%BC%8C%E6%90%9C%E7%B4%A2%E6%A0%8F%E8%BF%9B%E8%A1%8C%E6%90%9C%E7%B4%A2%E9%80%89%E6%8B%A9%E4%BD%A0%E6%83%B3%E7%94%A8%E7%9A%84%E6%A8%A1%E5%9E%8B">https://ollama.com/，搜索栏进行搜索选择你想用的模型</a></p>
-<p><img src="/assets%5C1728640401525.png" alt="1728640401525"></p>
+<p><img src="/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728640401525.png" alt="1728640401525"></p>
 <p>点击进去，复制红框里的命令行</p>
-<p><img src="/assets%5C1728640549411.png" alt="1728640549411"></p>
+<p><img src="/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728640549411.png" alt="1728640549411"></p>
 <p>将复制的命令在windows的cmd窗口下进行运行 ， 模型就开始下载耐心等待即可</p>
-<p><img src="/assets%5C1728639447144.png" alt="1728639447144"></p>
+<p><img src="/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728639447144.png" alt="1728639447144"></p>
 <p>等待一段时间你就会发现通过ollma list，就会增加一个deepseek-coder:6.7b的模型</p>
-<p><img src="/assets%5C1728639944157.png" alt="1728639944157"></p>
+<p><img src="/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728639944157.png" alt="1728639944157"></p>
 <p>需要注意的是如果你是win系统部署的Ollama平台，windows 的安装默认不支持修改程序安装目录，那么默认位置如下：<br>默认安装后的目录：C:\Users\username\AppData\Local\Programs\Ollama<br>默认安装的模型目录：C:\Users\username\ .ollama<br>默认的配置文件目录：C:\Users\username\AppData\Local\Ollama</p>
 <p>这里提一下是因为后续在模型推理的时候使用cpu 还是GPU,需要找到配置文件的路径进行确认</p>
 <h3 id="3-Open-webUI本地项目的部署"><a href="#3-Open-webUI本地项目的部署" class="headerlink" title="3.Open_webUI本地项目的部署"></a>3.Open_webUI本地项目的部署</h3><h4 id="3-1-容器部署"><a href="#3-1-容器部署" class="headerlink" title="3.1 容器部署"></a>3.1 容器部署</h4><p>在 Windows 系统上完成 Docker Desktop 的安装后，我们直接进入github此项目的仓库</p>
@@ -168,28 +168,28 @@
 <p><a target="_blank" rel="noopener" href="https://github.com/open-webui/open-webui">https://github.com/open-webui/open-webui</a>  可以点击浏览器自带的翻译找到下面的信息</p>
 </blockquote>
 <blockquote>
-<p><img src="/assets%5C1728638857461.png" alt="1728638857461"></p>
+<p><img src="/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728638857461.png" alt="1728638857461"></p>
 </blockquote>
 <p>这里提供了多种安装环境的选择，我们只需挑选适合自己情况的那一部分即可我们在这里直接复制命令在windows 的cmd窗口进行运行即可  ，因为我是在windows本地进行部署，我选择是第一条命令</p>
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 3000:8080 --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:main</span><br></pre></td></tr></table></figure>
 
 <p>这条命令它的主要作用是去拉取一个 Open WebUI 的 Docker 镜像，并进行部署。我们只需在 CMD 终端上执行这条命令，暂时不考虑调整各个参数。</p>
-<p><img src="/assets%5C1728639101935.png" alt="1728639101935"></p>
+<p><img src="/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728639101935.png" alt="1728639101935"></p>
 <p>这个过程可能需要一些时间，请耐心等待，当每个项目都显示<code>Pull complete</code>时，恭喜你，这个 Docker 镜像的部署就完成了。</p>
 <h4 id="3-2-进入UI界面"><a href="#3-2-进入UI界面" class="headerlink" title="3.2 进入UI界面"></a>3.2 进入UI界面</h4><p>如果你是本地部署的通过在浏览上输入<a target="_blank" rel="noopener" href="http://localhost:3000/">http://localhost:3000</a>即可进入下面的ui界面，然后进行注册</p>
-<p><img src="/assets%5C1728640956042.png" alt="1728640956042"></p>
+<p><img src="/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728640956042.png" alt="1728640956042"></p>
 <p>注册完成后你就得到了一个类似于chatGPT的UI界面</p>
-<p><img src="/assets%5C1728640869266.png" alt="1728640869266"></p>
-<p>到这里你可以选择一个模型进行使用，这与之前的ollama list查看的模型是一致，如下图<img src="/assets%5C1728641060083.png" alt="1728641060083"></p>
-<p><img src="/assets%5C1728641156807.png" alt="1728641156807"></p>
+<p><img src="/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728640869266.png" alt="1728640869266"></p>
+<p>到这里你可以选择一个模型进行使用，这与之前的ollama list查看的模型是一致，如下图<img src="/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728641060083.png" alt="1728641060083"></p>
+<p><img src="/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728641156807.png" alt="1728641156807"></p>
 <h2 id="二、模型的选取"><a href="#二、模型的选取" class="headerlink" title="二、模型的选取"></a>二、模型的选取</h2><p>​	在选择模型时，我们需要综合考虑任务需求、模型性能、硬件兼容性、数据匹配、部署复杂度、社区支持、成本预算以及可解释性等多个因素。通过仔细评估这些因素，选择最适合你应用场景的模型，并确保其高效、可靠地运行。</p>
 <p>·	首先根据任务的需求，我这里要做的任务是对话形式的智能助手，所以在模型的选择是我选择的chat多轮对话的基座大模型，其次模型的性能其实就是我们测评得出的效果，在这里就是支持我垂直领域知识的情况;然后模型的大小，硬件的兼容性，和成本预算，我这里的服务器的配置如下：</p>
-<p> <img src="/assets%5C1728699732355.png" alt="1728699732355"></p>
-<p>所以选择百亿参数以下的模型应该绰绰有余，下一步明确部署的模型是通过CPU还是GPU进行的推理，因为这里使用的是ollama平台进行的模型的部署，通常情况下是通过CPU进行部署推理的，通过ollama run 模型名，命令部署的模型，默认情况下是可以在CPU上运行的，但这取决于你的具体配置。Ollama框架支持仅使用CPU或者CPU+GPU的混合模式进行推理。如果你的系统配置了GPU，并且正确设置了环境（包括安装了必要的GPU驱动和NVIDIA Container Toolkit），Ollama可以通过设置参数来利用GPU资源。然而，根据你提供的信息，并没有明确指出在运行deepseek-coder:6.7b时是否特别指定了使用GPU。如果没有额外的参数来指定使用GPU，它很可能会默认使用CPU进行推理。因为我这边进行了正确设置了环境（包括安装了必要的GPU驱动和NVIDIA Container Toolkit），所以我得模型推理的时候使用了GPU<br><img src="/assets%5C1728709456278.png" alt="1728709456278"></p>
+<p> <img src="/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728699732355.png" alt="1728699732355"></p>
+<p>所以选择百亿参数以下的模型应该绰绰有余，下一步明确部署的模型是通过CPU还是GPU进行的推理，因为这里使用的是ollama平台进行的模型的部署，通常情况下是通过CPU进行部署推理的，通过ollama run 模型名，命令部署的模型，默认情况下是可以在CPU上运行的，但这取决于你的具体配置。Ollama框架支持仅使用CPU或者CPU+GPU的混合模式进行推理。如果你的系统配置了GPU，并且正确设置了环境（包括安装了必要的GPU驱动和NVIDIA Container Toolkit），Ollama可以通过设置参数来利用GPU资源。然而，根据你提供的信息，并没有明确指出在运行deepseek-coder:6.7b时是否特别指定了使用GPU。如果没有额外的参数来指定使用GPU，它很可能会默认使用CPU进行推理。因为我这边进行了正确设置了环境（包括安装了必要的GPU驱动和NVIDIA Container Toolkit），所以我得模型推理的时候使用了GPU<br><img src="/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728709456278.png" alt="1728709456278"></p>
 <p>好吧，说了这么多，最后我综合考量我们的项目大小和本身的硬件资源，以及客户的要求，在这里选取的大模型如下：<br>​	清华2024年6月开源的GLM-4-9B系列</p>
 <p>​	阿里2024年6月开源qwen2系列</p>
 <p>​	阿里2024年9月19日开源qwen2.5系列</p>
-<p><img src="/assets%5C1728709498926.png" alt="1728709498926"></p>
+<p><img src="/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728709498926.png" alt="1728709498926"></p>
 <h2 id="三、实际测评过程"><a href="#三、实际测评过程" class="headerlink" title="三、实际测评过程"></a>三、实际测评过程</h2><h3 id="1-测评思路"><a href="#1-测评思路" class="headerlink" title="1.测评思路"></a>1.测评思路</h3><p>因为我做的这个项目是关于通讯设备OTN网元设备的项目，所以根据使用场景我的想法：希望的是通过以下四个阶段对模型进行测评和对比，最终通过回答的效果分析。</p>
 <p>​	<strong>准备阶段</strong>：制定详细的测评问卷或对话脚本，确保覆盖所有测评点。</p>
 <p>​	<strong>执行阶段</strong>：通过API或交互界面，向模型提出上述设计的问题，并记录其回答。</p>
@@ -315,31 +315,31 @@
 </li>
 </ul>
 <h3 id="3-实施过程"><a href="#3-实施过程" class="headerlink" title="3.实施过程"></a>3.实施过程</h3><p>进入web_UI界面，分别创建三个模型的对话框</p>
-<p><img src="/assets%5C1728721241305.png" alt="1728721241305"></p>
+<p><img src="/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728721241305.png" alt="1728721241305"></p>
 <p>以此问题举例进行对比：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">2023-10-05 14:32:15 Major ALM_GFP_dLFD Port 1/2/3 GFP dLFD Alarm on Port 1/2/3 Active NE1 Additional Info: Link failure detected</span><br><span class="line">2023-10-05 14:32:15 Major APS_INDI Line 1/2/3 APS Indication on Line 1/2/3 Active NE1 Additional Info: Protection switch initiated</span><br><span class="line">2023-10-05 14:32:15 Major APS_FAIL Line 1/2/3 APS Failure on Line 1/2/3 Active NE1 Additional Info: Protection switch failed</span><br><span class="line">如果华为的OTN设备出现了上述的告警，应该如何诊断和解决？</span><br></pre></td></tr></table></figure>
 
-<h4 id="（1）qwen的回答："><a href="#（1）qwen的回答：" class="headerlink" title="（1）qwen的回答："></a><strong>（1）qwen的回答：</strong></h4><p><img src="/assets%5C1728722342182.png" alt="1728722342182"></p>
-<p><img src="/assets%5C1728722404305.png" alt="1728722404305"></p>
-<p><img src="/assets%5C1728722450359.png" alt="1728722450359"></p>
-<p><img src="/assets%5C1728722484675.png" alt="1728722484675"></p>
-<p><img src="/assets%5C1728722523094.png" alt="1728722523094"></p>
-<h4 id="（2）glm4的回答："><a href="#（2）glm4的回答：" class="headerlink" title="（2）glm4的回答："></a>（2）glm4的回答：</h4><p><img src="/assets%5C1728722952964.png" alt="1728722952964"></p>
-<p><img src="/assets%5C1728722997750.png" alt="1728722997750"></p>
-<p><img src="/assets%5C1728723026814.png" alt="1728723026814"></p>
-<p><img src="/assets%5C1728723045072.png" alt="1728723045072"></p>
-<h4 id="（3）deepseek的回答："><a href="#（3）deepseek的回答：" class="headerlink" title="（3）deepseek的回答："></a>（3）deepseek的回答：</h4><p><img src="/assets%5C1728723064433.png" alt="1728723064433"></p>
-<h4 id="（4）chatGPT的回答"><a href="#（4）chatGPT的回答" class="headerlink" title="（4）chatGPT的回答"></a><strong>（4）chatGPT的回答</strong></h4><p><img src="/assets%5C1728723259695.png" alt="1728723259695"></p>
-<p><img src="/assets%5C1728723373572.png" alt="1728723373572"></p>
-<p><img src="/assets%5C1728723421005.png" alt="1728723421005"></p>
-<p><img src="/assets%5C1728723439375.png" alt="1728723439375"></p>
-<p><img src="/assets%5C1728723453975.png" alt="1728723453975"></p>
+<h4 id="（1）qwen的回答："><a href="#（1）qwen的回答：" class="headerlink" title="（1）qwen的回答："></a><strong>（1）qwen的回答：</strong></h4><p><img src="/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728722342182.png" alt="1728722342182"></p>
+<p><img src="/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728722404305.png" alt="1728722404305"></p>
+<p><img src="/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728722450359.png" alt="1728722450359"></p>
+<p><img src="/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728722484675.png" alt="1728722484675"></p>
+<p><img src="/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728722523094.png" alt="1728722523094"></p>
+<h4 id="（2）glm4的回答："><a href="#（2）glm4的回答：" class="headerlink" title="（2）glm4的回答："></a>（2）glm4的回答：</h4><p><img src="/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728722952964.png" alt="1728722952964"></p>
+<p><img src="/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728722997750.png" alt="1728722997750"></p>
+<p><img src="/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728723026814.png" alt="1728723026814"></p>
+<p><img src="/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728723045072.png" alt="1728723045072"></p>
+<h4 id="（3）deepseek的回答："><a href="#（3）deepseek的回答：" class="headerlink" title="（3）deepseek的回答："></a>（3）deepseek的回答：</h4><p><img src="/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728723064433.png" alt="1728723064433"></p>
+<h4 id="（4）chatGPT的回答"><a href="#（4）chatGPT的回答" class="headerlink" title="（4）chatGPT的回答"></a><strong>（4）chatGPT的回答</strong></h4><p><img src="/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728723259695.png" alt="1728723259695"></p>
+<p><img src="/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728723373572.png" alt="1728723373572"></p>
+<p><img src="/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728723421005.png" alt="1728723421005"></p>
+<p><img src="/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728723439375.png" alt="1728723439375"></p>
+<p><img src="/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84%5C1728723453975.png" alt="1728723453975"></p>
 <h4 id="（5）总结："><a href="#（5）总结：" class="headerlink" title="（5）总结："></a>（5）总结：</h4><p>对于Deepseek模型的输出结果来看，实际上当时选择的模型coder类型，侧重编码，在相同的提示词的情况下，输出直接输出的就是命令的的排查方法，但是确实思路的分析，首先进行了排除<br>对于GLM和qwen的回答，对保存告警的排查思路和命令行的输出都有着不错的效果，在参考模型参数的大小，对于glm4:9b     占用 5.5 GB硬盘资源，是90亿参数的模型，qwen2.5:latest  占硬盘 4.7 GB  ,是70亿参数的模型，最终选择qwen2.5:latest 作为我们项目的最终基座模型。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/10/16/%E6%B5%8B%E8%AF%84qwen%20%E3%80%81glm%20,deepseek%E7%9A%84%E6%A8%A1%E5%9E%8B%20%20%E5%AF%B9%E5%9E%82%E7%9B%B4%E9%A2%86%E5%9F%9F%E9%80%9A%E8%AE%AF%E7%9A%84%E8%83%BD%E5%8A%9B%E7%9A%84%E6%94%AF%E6%8C%81%E6%83%85%E5%86%B5%E5%AF%B9%E6%AF%94/" data-id="cm2byxdiu0002iov7adw31cf9" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/10/20/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84/" data-id="cm2heylhw0002lwv718djhtfz" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -350,9 +350,9 @@
 <nav id="article-nav">
   
   
-    <a href="/2024/10/16/bolg/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2024/10/20/test/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">bolg</div>
+      <div class="article-nav-title">test</div>
     </a>
   
 </nav>
@@ -390,15 +390,15 @@
       <ul>
         
           <li>
-            <a href="/2024/10/16/%E6%B5%8B%E8%AF%84qwen%20%E3%80%81glm%20,deepseek%E7%9A%84%E6%A8%A1%E5%9E%8B%20%20%E5%AF%B9%E5%9E%82%E7%9B%B4%E9%A2%86%E5%9F%9F%E9%80%9A%E8%AE%AF%E7%9A%84%E8%83%BD%E5%8A%9B%E7%9A%84%E6%94%AF%E6%8C%81%E6%83%85%E5%86%B5%E5%AF%B9%E6%AF%94/">(no title)</a>
+            <a href="/2024/10/20/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%84/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2024/10/16/bolg/">bolg</a>
+            <a href="/2024/10/20/test/">test</a>
           </li>
         
           <li>
-            <a href="/2024/10/16/hello-world/">Hello World</a>
+            <a href="/2024/10/20/bolg/">bolg</a>
           </li>
         
       </ul>
