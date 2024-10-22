@@ -6,80 +6,6 @@
     <content><![CDATA[<img src="/2024/10/20/bolg/1729418200527.png" class="" width="1729418200527">]]></content>
   </entry>
   <entry>
-    <title>log2</title>
-    <url>/2024/10/20/log2/</url>
-    <content><![CDATA[<h1 id="国内使用docker网络限制解决方法"><a href="#国内使用docker网络限制解决方法" class="headerlink" title="国内使用docker网络限制解决方法"></a>国内使用docker网络限制解决方法</h1><h3 id="1-环境介绍"><a href="#1-环境介绍" class="headerlink" title="1.环境介绍"></a>1.环境介绍</h3><p>​	我是在本地的win11上，开启了微软WSL虚拟化功能，然后搭建的Ubuntu系统，好处就是子系统Ubuntu系统可以共享宿主机win11系统的全部硬件资源，包括CPU,内存，硬盘，GPU。所以一下尝试都是在WSL中的Ubuntu系统中进行的操作和尝试。</p>
-<p>​	注意：方法一适用于大部分情况的，直接利用国内镜像加速器即可，方法二和三是利用了代理，更适用我的环境，大家可以根据自己的需求进行选择。 方法二三的好处是成功后huggingface 等需要科学上网的网站也可以进行访问。</p>
-<h2 id="方法-一-使用国内镜像加速器"><a href="#方法-一-使用国内镜像加速器" class="headerlink" title="方法 一: 使用国内镜像加速器"></a>方法 一: 使用国内镜像加速器</h2><p>你可以配置 Docker 使用国内的镜像加速器，如阿里云、腾讯云或网易云的镜像加速服务。以下是配置阿里云镜像加速器的步骤：</p>
-<h4 id="1-获取阿里云镜像加速器地址"><a href="#1-获取阿里云镜像加速器地址" class="headerlink" title="1. 获取阿里云镜像加速器地址"></a>1. 获取阿里云镜像加速器地址</h4><p>登录阿里云控制台，找到容器镜像服务，获取你的镜像加速器地址。</p>
-<h4 id="2-配置-Docker-使用镜像加速器"><a href="#2-配置-Docker-使用镜像加速器" class="headerlink" title="2. 配置 Docker 使用镜像加速器"></a>2. 配置 Docker 使用镜像加速器</h4><p>编辑 Docker 配置文件 <code>/etc/docker/daemon.json</code>（如果不存在则创建）：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> vim /etc/docker/daemon.json</span><br></pre></td></tr></table></figure>
-
-<p>添加以下内容（将 <code>your-accelerator-url</code> 替换为你的镜像加速器地址）：</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">例如：</span><br><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;registry-mirrors&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;https://irm6o51v.mirror.aliyuncs.com&quot;</span><span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p>保存并退出编辑器。</p>
-<h4 id="3-重启-Docker-服务"><a href="#3-重启-Docker-服务" class="headerlink" title="3. 重启 Docker 服务"></a>3. 重启 Docker 服务</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl daemon-reload</span><br><span class="line"><span class="built_in">sudo</span> systemctl restart docker</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="4-检验是否成功"><a href="#4-检验是否成功" class="headerlink" title="4. 检验是否成功"></a>4. 检验是否成功</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl <span class="string">&quot;https://www.google.com&quot;</span></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h2 id="方法二：WSL使用win的Clash加速器："><a href="#方法二：WSL使用win的Clash加速器：" class="headerlink" title="方法二：WSL使用win的Clash加速器："></a>方法二：WSL使用win的Clash加速器：</h2><p>注意：这个是有风险的，如果配置了这个conda或者git可能都不能用了</p>
-<h4 id="1-检查配置文件"><a href="#1-检查配置文件" class="headerlink" title="1. 检查配置文件"></a>1. 检查配置文件</h4><p>确保你在配置文件中设置环境变量时没有多余的空格或不可见字符。你可以使用 <code>cat -v</code> 命令来查看文件中的不可见字符。</p>
-<p>例如，检查 <code>/etc/profile</code> 文件：</p>
-<p>bash</p>
-<p>复制</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cat -v /etc/profile</span><br></pre></td></tr></table></figure>
-
-<p>确保文件中的 <code>export</code> 命令格式正确，例如：</p>
-<p>bash</p>
-<p>复制</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export http_proxy=&quot;http://ip_address:7890&quot;</span><br><span class="line">export https_proxy=&quot;http://ip_address:7890&quot;</span><br></pre></td></tr></table></figure>
-
-<h4 id="2-编辑配置文件"><a href="#2-编辑配置文件" class="headerlink" title="2. 编辑配置文件"></a>2. 编辑配置文件</h4><p>如果发现有不可见字符，使用 <code>nano</code> 或其他编辑器编辑配置文件，并确保格式正确。</p>
-<p>例如，编辑 <code>/etc/profile</code> 文件：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo nano /etc/profile</span><br></pre></td></tr></table></figure>
-
-<p>确保文件中的 <code>export</code> 命令格式正确，例如：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export http_proxy=&quot;http://ip_address:7890&quot;</span><br><span class="line">export https_proxy=&quot;http://ip_address:7890&quot;</span><br></pre></td></tr></table></figure>
-
-<p>保存并退出：</p>
-<ul>
-<li>按 <code>Ctrl + O</code> 保存文件。</li>
-<li>按 <code>Ctrl + X</code> 退出编辑器。</li>
-</ul>
-<h4 id="3-重新加载配置文件"><a href="#3-重新加载配置文件" class="headerlink" title="3. 重新加载配置文件"></a>3. 重新加载配置文件</h4><p>编辑完成后，重新加载配置文件以使更改生效：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
-
-<h4 id="4-检查环境变量"><a href="#4-检查环境变量" class="headerlink" title="4. 检查环境变量"></a>4. 检查环境变量</h4><p>重新加载配置文件后，检查环境变量是否正确设置：s</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo $http_proxy</span><br><span class="line">echo $https_proxy</span><br></pre></td></tr></table></figure>
-
-<h4 id="5-测试是否成功"><a href="#5-测试是否成功" class="headerlink" title="5.测试是否成功"></a>5.测试是否成功</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">curl &quot;https://www.google.com&quot;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="方法三：开启wsl代理，并配置"><a href="#方法三：开启wsl代理，并配置" class="headerlink" title="方法三：开启wsl代理，并配置"></a>方法三：开启wsl代理，并配置</h2><h4 id="1-确定-Bash-还是-Zsh环境。"><a href="#1-确定-Bash-还是-Zsh环境。" class="headerlink" title="1.确定 Bash 还是 Zsh环境。"></a>1.确定 Bash 还是 Zsh环境。</h4><p>可以使用下面的命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo $0</span><br></pre></td></tr></table></figure>
-
-<p>以我为例，我显示是<code>-bash</code>,因此我是Bash环境。</p>
-<h4 id="2-添加环境变量"><a href="#2-添加环境变量" class="headerlink" title="2.添加环境变量"></a>2.添加环境变量</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> vim ~/.bashrc <span class="comment">#bash</span></span><br></pre></td></tr></table></figure>
-
-<p>在文件中添加两行代码：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">alias</span> proxy=<span class="string">&#x27;export all_proxy=http://[ip地址]:10811&#x27;</span># v2ray的端口具体端口根据自己的代理更改</span><br><span class="line"><span class="built_in">alias</span> unproxy=<span class="string">&#x27;unset all_proxy&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="3-更新一下环境"><a href="#3-更新一下环境" class="headerlink" title="3.更新一下环境"></a>3.更新一下环境</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure>
-
-<h4 id="4-代理的激活和取消"><a href="#4-代理的激活和取消" class="headerlink" title="4.代理的激活和取消"></a>4.代理的激活和取消</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">proxy <span class="comment"># 激活代理</span></span><br><span class="line">unproxy <span class="comment"># 取消代理</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="5-可以用谷歌进行测试："><a href="#5-可以用谷歌进行测试：" class="headerlink" title="5.可以用谷歌进行测试："></a>5.可以用谷歌进行测试：</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl <span class="string">&quot;https://www.google.com&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>如果显示出网页源代码，那么就成功了！</p>
-]]></content>
-  </entry>
-  <entry>
     <title>test</title>
     <url>/2024/10/20/test/</url>
     <content><![CDATA[<h2 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h2><p>​	在写这篇文章的时候，我也看了许多测评的文章，总觉得差点意思，都是对通用能力的测评，或者是垂直领域的coder 或者是math能力，就不太适用于我目前的项目，对于任何一个公司开发项目肯定是数据是非常核心的，不能说去直接调用市面给用户使用的大模型的api,需要部署本地大模型进行使用。我的思路，通过本地部署大模型，通过开发平台进行对垂直领域的回答,把chatGPT作为专家模型，进行对比，最后选出参数合适，领域知识全面的模型进行使用，引入项目当中去。</p>
@@ -334,6 +260,80 @@
 <img src="/2024/10/20/test/1728723453975.png" class="" width="1728723453975">
 
 <h4 id="（5）总结："><a href="#（5）总结：" class="headerlink" title="（5）总结："></a>（5）总结：</h4><p>对于Deepseek模型的输出结果来看，实际上当时选择的模型coder类型，侧重编码，在相同的提示词的情况下，输出直接输出的就是命令的的排查方法，但是确实思路的分析，首先进行了排除<br>对于GLM和qwen的回答，对保存告警的排查思路和命令行的输出都有着不错的效果，在参考模型参数的大小，对于glm4:9b     占用 5.5 GB硬盘资源，是90亿参数的模型，qwen2.5:latest  占硬盘 4.7 GB  ,是70亿参数的模型，最终选择qwen2.5:latest 作为我们项目的最终基座模型。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>log2</title>
+    <url>/2024/10/20/log2/</url>
+    <content><![CDATA[<h1 id="国内使用docker网络限制解决方法"><a href="#国内使用docker网络限制解决方法" class="headerlink" title="国内使用docker网络限制解决方法"></a>国内使用docker网络限制解决方法</h1><h3 id="1-环境介绍"><a href="#1-环境介绍" class="headerlink" title="1.环境介绍"></a>1.环境介绍</h3><p>​	我是在本地的win11上，开启了微软WSL虚拟化功能，然后搭建的Ubuntu系统，好处就是子系统Ubuntu系统可以共享宿主机win11系统的全部硬件资源，包括CPU,内存，硬盘，GPU。所以一下尝试都是在WSL中的Ubuntu系统中进行的操作和尝试。</p>
+<p>​	注意：方法一适用于大部分情况的，直接利用国内镜像加速器即可，方法二和三是利用了代理，更适用我的环境，大家可以根据自己的需求进行选择。 方法二三的好处是成功后huggingface 等需要科学上网的网站也可以进行访问。</p>
+<h2 id="方法-一-使用国内镜像加速器"><a href="#方法-一-使用国内镜像加速器" class="headerlink" title="方法 一: 使用国内镜像加速器"></a>方法 一: 使用国内镜像加速器</h2><p>你可以配置 Docker 使用国内的镜像加速器，如阿里云、腾讯云或网易云的镜像加速服务。以下是配置阿里云镜像加速器的步骤：</p>
+<h4 id="1-获取阿里云镜像加速器地址"><a href="#1-获取阿里云镜像加速器地址" class="headerlink" title="1. 获取阿里云镜像加速器地址"></a>1. 获取阿里云镜像加速器地址</h4><p>登录阿里云控制台，找到容器镜像服务，获取你的镜像加速器地址。</p>
+<h4 id="2-配置-Docker-使用镜像加速器"><a href="#2-配置-Docker-使用镜像加速器" class="headerlink" title="2. 配置 Docker 使用镜像加速器"></a>2. 配置 Docker 使用镜像加速器</h4><p>编辑 Docker 配置文件 <code>/etc/docker/daemon.json</code>（如果不存在则创建）：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> vim /etc/docker/daemon.json</span><br></pre></td></tr></table></figure>
+
+<p>添加以下内容（将 <code>your-accelerator-url</code> 替换为你的镜像加速器地址）：</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">例如：</span><br><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;registry-mirrors&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;https://irm6o51v.mirror.aliyuncs.com&quot;</span><span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>保存并退出编辑器。</p>
+<h4 id="3-重启-Docker-服务"><a href="#3-重启-Docker-服务" class="headerlink" title="3. 重启 Docker 服务"></a>3. 重启 Docker 服务</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl daemon-reload</span><br><span class="line"><span class="built_in">sudo</span> systemctl restart docker</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="4-检验是否成功"><a href="#4-检验是否成功" class="headerlink" title="4. 检验是否成功"></a>4. 检验是否成功</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl <span class="string">&quot;https://www.google.com&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="方法二：WSL使用win的Clash加速器："><a href="#方法二：WSL使用win的Clash加速器：" class="headerlink" title="方法二：WSL使用win的Clash加速器："></a>方法二：WSL使用win的Clash加速器：</h2><p>注意：这个是有风险的，如果配置了这个conda或者git可能都不能用了</p>
+<h4 id="1-检查配置文件"><a href="#1-检查配置文件" class="headerlink" title="1. 检查配置文件"></a>1. 检查配置文件</h4><p>确保你在配置文件中设置环境变量时没有多余的空格或不可见字符。你可以使用 <code>cat -v</code> 命令来查看文件中的不可见字符。</p>
+<p>例如，检查 <code>/etc/profile</code> 文件：</p>
+<p>bash</p>
+<p>复制</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cat -v /etc/profile</span><br></pre></td></tr></table></figure>
+
+<p>确保文件中的 <code>export</code> 命令格式正确，例如：</p>
+<p>bash</p>
+<p>复制</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export http_proxy=&quot;http://ip_address:7890&quot;</span><br><span class="line">export https_proxy=&quot;http://ip_address:7890&quot;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-编辑配置文件"><a href="#2-编辑配置文件" class="headerlink" title="2. 编辑配置文件"></a>2. 编辑配置文件</h4><p>如果发现有不可见字符，使用 <code>nano</code> 或其他编辑器编辑配置文件，并确保格式正确。</p>
+<p>例如，编辑 <code>/etc/profile</code> 文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo nano /etc/profile</span><br></pre></td></tr></table></figure>
+
+<p>确保文件中的 <code>export</code> 命令格式正确，例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export http_proxy=&quot;http://ip_address:7890&quot;</span><br><span class="line">export https_proxy=&quot;http://ip_address:7890&quot;</span><br></pre></td></tr></table></figure>
+
+<p>保存并退出：</p>
+<ul>
+<li>按 <code>Ctrl + O</code> 保存文件。</li>
+<li>按 <code>Ctrl + X</code> 退出编辑器。</li>
+</ul>
+<h4 id="3-重新加载配置文件"><a href="#3-重新加载配置文件" class="headerlink" title="3. 重新加载配置文件"></a>3. 重新加载配置文件</h4><p>编辑完成后，重新加载配置文件以使更改生效：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-检查环境变量"><a href="#4-检查环境变量" class="headerlink" title="4. 检查环境变量"></a>4. 检查环境变量</h4><p>重新加载配置文件后，检查环境变量是否正确设置：s</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo $http_proxy</span><br><span class="line">echo $https_proxy</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-测试是否成功"><a href="#5-测试是否成功" class="headerlink" title="5.测试是否成功"></a>5.测试是否成功</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">curl &quot;https://www.google.com&quot;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="方法三：开启wsl代理，并配置"><a href="#方法三：开启wsl代理，并配置" class="headerlink" title="方法三：开启wsl代理，并配置"></a>方法三：开启wsl代理，并配置</h2><h4 id="1-确定-Bash-还是-Zsh环境。"><a href="#1-确定-Bash-还是-Zsh环境。" class="headerlink" title="1.确定 Bash 还是 Zsh环境。"></a>1.确定 Bash 还是 Zsh环境。</h4><p>可以使用下面的命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo $0</span><br></pre></td></tr></table></figure>
+
+<p>以我为例，我显示是<code>-bash</code>,因此我是Bash环境。</p>
+<h4 id="2-添加环境变量"><a href="#2-添加环境变量" class="headerlink" title="2.添加环境变量"></a>2.添加环境变量</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> vim ~/.bashrc <span class="comment">#bash</span></span><br></pre></td></tr></table></figure>
+
+<p>在文件中添加两行代码：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">alias</span> proxy=<span class="string">&#x27;export all_proxy=http://[ip地址]:10811&#x27;</span># v2ray的端口具体端口根据自己的代理更改</span><br><span class="line"><span class="built_in">alias</span> unproxy=<span class="string">&#x27;unset all_proxy&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-更新一下环境"><a href="#3-更新一下环境" class="headerlink" title="3.更新一下环境"></a>3.更新一下环境</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-代理的激活和取消"><a href="#4-代理的激活和取消" class="headerlink" title="4.代理的激活和取消"></a>4.代理的激活和取消</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">proxy <span class="comment"># 激活代理</span></span><br><span class="line">unproxy <span class="comment"># 取消代理</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="5-可以用谷歌进行测试："><a href="#5-可以用谷歌进行测试：" class="headerlink" title="5.可以用谷歌进行测试："></a>5.可以用谷歌进行测试：</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl <span class="string">&quot;https://www.google.com&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>如果显示出网页源代码，那么就成功了！</p>
 ]]></content>
   </entry>
 </search>
